@@ -10,11 +10,14 @@ const programSchema = new Schema({
     programName: String,
     programName: String
 
+},{
+    collection: 'programs',
+    versionKey: false
 
 
 
 
 
 
-    
-})
+});
+module.exports = mongoose.model("Program", programSchema)
