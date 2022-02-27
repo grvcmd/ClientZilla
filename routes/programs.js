@@ -16,3 +16,20 @@ router.get('/', (req,res,next )=>{
         }
     })
 });
+
+// created api to get a program by programID
+router.get('/:id',(req, res, next) => {
+    console.log('Getting program with ProgramID: ${req.params.id}')
+
+    //error handling 
+    ProgramModel.findOne({programID: req.params.id}, (error, data) => {
+        if (error){
+            return next (error)
+        } else if (data === null) {
+            res.status(404).send('Program not found')
+        } else {
+            res.json(data)
+        }
+        
+    })
+});
