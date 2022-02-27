@@ -1,19 +1,22 @@
-const express = require('express')
-const mongoose = require('mongoose')
-const app = express()
-app.use(express.json()) // allows us to access req body as req.body
+const express = require('express');
+const mongoose = require('mongoose');
+const app = express();
+require('dotenv').config();
+app.use(express.json()); // allows us to access req body as req.body
+
+
 
 // Set up the mongoose DB connection
 // .connect('mongodb://localhost/test')
 mongoose
-    .connect('mongodb+srv://userKen:ken123@cluster0.azb0e.mongodb.net/CIS4339DB?retryWrites=true&w=majority')
+    .connect(process.env.MONGODB_CONNECTION_URL)
     .then(() => {
         console.log('Database connection success!')
     })
     .catch((err) => {
         console.error("MongoDB connection error", err)
     });
-const port = 3000
+const port = process.env.PORT
 
 // Routes for each model
 // const serviceRouter = require('./routes/services')
@@ -39,7 +42,7 @@ app.get('/', (req, res) => {
 
 // Server will start listening and log a message if OK
 app.listen(port, () => {
-  console.log("Server started listening on port : ", port);
+  console.log("Server started listening on port.");
 });
 
 // error handler
