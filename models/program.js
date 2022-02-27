@@ -8,7 +8,7 @@ const programSchema = new Schema({
         unique: true
     },
     programName: String,
-    programName: String
+    programDesc: String
 
 },{
     collection: 'programs',
