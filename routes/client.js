@@ -17,3 +17,4 @@ router.get('/async', async (req, res, next) => {
     }
 
 });
+//TODO:promise function
