@@ -45,3 +45,13 @@ router.delete('/:id', (req, res, next) => {
         }
     })
 })
+//endpoint for creating a service document
+router.post ('/', (req, res, next) => {
+    ServiceModel.create(req.body, (error, data) => {
+        if (error) {
+            return next (error)
+        } else {
+            res.send('Service was added to the database')
+        }
+    })
+})
