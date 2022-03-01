@@ -55,3 +55,16 @@ router.post ('/', (req, res, next) => {
         }
     })
 })
+//endpoint for updating (editing) a service 
+router.put ('/:id', (req, res, next) => {
+    ServiceModel.findOneAndUpdate({ serviceID: req.params.id }, {$set: req.body}, (error, data) => {
+        if (error) {
+            return next (error)
+        } else {
+            res.send('Service was edited via PUT')
+            console.log('Service successfully updated', data)
+        }
+    })
+})
+
+module.exports = router 
