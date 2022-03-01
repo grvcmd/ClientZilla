@@ -11,7 +11,7 @@ const ServiceModel = require('./../models/service')
 router.get ('/', (req, res, next) => {
     console.log('Currently in /services')
     // Get all collection data using the mongoose schema
-    ServiceModel.find((error, date) => {
+    ServiceModel.find((error, data) => {
         if (error) {
             return next (error)
          } else {
