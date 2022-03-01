@@ -19,9 +19,10 @@ mongoose
 const port = process.env.PORT
 
 // Routes for each model
-// const serviceRouter = require('./routes/services')
-// const programRouter = require('./routes/programs')
+const serviceRouter = require('./routes/services')
+const programRouter = require('./routes/programs')
 const intakeFormRouter = require('./routes/intakeForms')
+const clientRouter = require('./routes/client')
 
 // Every router created with serviceRouter will
 // be added to the end of '/services'
