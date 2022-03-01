@@ -23,7 +23,7 @@ const port = process.env.PORT
 const serviceRouter = require('./routes/services')
 const programRouter = require('./routes/programs')
 const intakeFormRouter = require('./routes/intakeForms')
-const clientRouter = require('./routes/client')
+//const clientRouter = require('./routes/client')
 
 // Every router created with serviceRouter will
 // be added to the end of '/services'
