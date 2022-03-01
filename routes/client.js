@@ -17,4 +17,17 @@ router.get('/async', async (req, res, next) => {
     }
 
 });
-//TODO:promise function
+
+//https://cis-4339.herokuapp.com/api/v1/data/Fiona/Smith/987-3595-89
+// api to get name,lastname, phone as params 
+router.get('/getallparams', async (req, res, next) => {
+    let apiURL= 'https://cis-4339.herokuapp.com/api/v1/data/${first_name}/${last_name}/${phone_number}'
+    try{
+        const response = await axios.get(apiURL);
+        res.status(200).json(response.data);
+
+    } catch(err){
+        res.status(500).json({message: err});
+    }
+
+});
