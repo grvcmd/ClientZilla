@@ -6,10 +6,10 @@ const ProgramModel = require ('./../models/program')
 
 // created API to get all programs 
 router.get('/', (req,res,next )=>{
-    console.log('currently in/programs')
+    console.log('currently in /programs')
     // error handling 
     ProgramModel.find((error, data) => {
-        if (error,data){
+        if (error) {
             return next (error)
         } else {
             res.json(data)
