@@ -41,7 +41,7 @@ app.get('/', (req, res) => {
     res.send('This is the homepage')
 })
 
-// Endpoint to fetch data from external API
+// Endpoint to GET data from external API
 app.get('/clients', async(req, res) => {
     let apiURL = 'https://cis-4339.herokuapp.com/api/v1/data';
     try {
@@ -51,6 +51,23 @@ app.get('/clients', async(req, res) => {
     catch {
         res.status(500).json({ message: err });
     };
+});
+
+// Endpoint to GET a single client from external API
+app.get('/clients/:first_name/:last_name/:phone_number', async(req, res) => {
+    let apiURL = 'https://cis-4339.herokuapp.com/api/v1/data';
+    const firstName = req.params.first_name
+    const lastName = req.params.last_name
+    const phoneNumber = req.params.phone_number
+    // Log api with params to test if desired results are received
+    console.log(`${apiURL}/${firstName}/${lastName}/${phoneNumber}`)
+    try {
+        const APIresponse = await axios.get(`${apiURL}/${firstName}/${lastName}/${phoneNumber}`);
+        res.status(200).json(APIresponse.data)
+    }
+    catch (err) {
+        res.status(500).json({ message: err });
+    }
 });
 
 // Server will start listening and log a message if OK
