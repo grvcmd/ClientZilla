@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const app = express();
 require('dotenv').config();
+const axios = require('axios')
 app.use(express.json()); // allows us to access req body as req.body
 
 
@@ -40,11 +41,23 @@ app.get('/', (req, res) => {
     res.send('This is the homepage')
 })
 
+// Endpoint to fetch data from external API
+app.get('/clients', async(req, res) => {
+    let apiURL = 'https://cis-4339.herokuapp.com/api/v1/data';
+    try {
+        const response = await axios.get(apiURL);
+        res.status(200).json(response.data)
+    }
+    catch {
+        res.status(500).json({ message: err });
+    };
+});
+
 // Server will start listening and log a message if OK
 app.listen(port, () => {
   console.log("Server started listening on port.");
 });
-asdfasf
+
 
 // error handler
 app.use(function (err, req, res, next) {
