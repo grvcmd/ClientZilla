@@ -27,11 +27,11 @@ const clientRouter = require('./routes/client')
 
 // Every router created with serviceRouter will
 // be added to the end of '/services'
-// app.use('/services', serviceRouter)
+app.use('/services', serviceRouter)
 
 // Every router created with programRouter will
 // be added to the end of '/programs'
-// app.use('/programs', programRouter)
+app.use('/programs', programRouter)
 
 // Every router created with intakeFormRouter will
 // be added to the end of '/intakeforms'
