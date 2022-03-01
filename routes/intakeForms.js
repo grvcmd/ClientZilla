@@ -24,9 +24,9 @@ router.get('/', (req, res, next) => {
 // endpoint to get an intake form by clientID
 // ** It can't work with clientID bc the UUID property changes it every request
 // So the ObjectId is being used temporarily
-router.get('/:id', (req, res, next) => {
-    console.log(`Getting intake form with clientID of ${req.params.id}`)
-    IntakeFormModel.findOne({ ObjectId: req.params.id }, (error, data) => {
+router.get('/:clientID', (req, res, next) => {
+    console.log(`Getting intake form with clientID of ${req.params.clientID}`)
+    IntakeFormModel.findOne({ clientID: req.params.clientID }, (error, data) => {
         if (error) {
             return next(error)
         } else if (data === null) {
