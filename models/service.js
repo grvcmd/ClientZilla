@@ -8,7 +8,11 @@ const serviceSchema = new Schema ({
         unique: true
     },
     // programID and clientID is a reference to another object based on the ID
-    programID: mongoose.SchemaTypes.ObjectId,
+    //programID: mongoose.SchemaTypes.ObjectId,
+    programID: {
+        type: Number,
+        required: true
+    },
     clientID: mongoose.SchemaTypes.ObjectId,
     serviceName: String,
     serviceDate: Date,
