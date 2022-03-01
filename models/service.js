@@ -16,7 +16,7 @@ const serviceSchema = new Schema ({
     clientID: mongoose.SchemaTypes.ObjectId,
     serviceName: String,
     serviceDate: Date,
-    ServiceAddress: {
+    serviceAddress: {
         street: String,
         city: String,
         zip: String,
