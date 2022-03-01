@@ -19,3 +19,17 @@ router.get ('/', (req, res, next) => {
          }
     })
 })
+//endpoint to get a service by serviceID
+router.get ('/:id', (req, res, next) => {
+    console.log('Getting service with serviceID of ${req.params.id}')
+
+    ServiceModel.findOne ({ serviceID: req.params.id}, (error, data) => {
+        if (error) {
+            return next(error)
+        } else if (data === null) {
+            res.status(404).send('Service not found')
+        } else {
+            res.json(data)
+        }
+    })
+})
