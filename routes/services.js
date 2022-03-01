@@ -33,3 +33,15 @@ router.get ('/:id', (req, res, next) => {
         }
     })
 })
+// endpoint for deleting a service by serviceID
+router.delete('/:id', (req, res, next) => {
+    ServiceModel.findOneAndRemove ({ serviceID: req.params.id}, (error,data) => {
+        if (error){
+            return next (error)
+        } else {
+            res.status(200).json ({
+                msg: data
+            })
+        }
+    })
+})
