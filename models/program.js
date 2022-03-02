@@ -8,9 +8,13 @@ const programSchema = new Schema({
         unique: true
     },
     programName: String,
-    programDesc: String
+    programDesc: String,
+    orgID: {
+        type: Number,
+        //required: true
+    }
 
-},{
+}, {
     collection: 'programs',
     versionKey: false
 

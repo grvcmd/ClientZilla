@@ -23,6 +23,7 @@ const port = process.env.PORT
 const serviceRouter = require('./routes/services')
 const programRouter = require('./routes/programs')
 const intakeFormRouter = require('./routes/intakeForms')
+const orgRouter = require('./routes/organizations')
 //const clientRouter = require('./routes/client')
 
 // Every router created with serviceRouter will
@@ -36,6 +37,10 @@ app.use('/programs', programRouter)
 // Every router created with intakeFormRouter will
 // be added to the end of '/intakeforms'
 app.use('/intakeforms', intakeFormRouter)
+
+// Every router created with orgRouter will
+// be added to the end of '/organizations'
+app.use('/organizations', orgRouter)
 
 // This endpoint is for the homepage
 app.get('/', (req, res) => {

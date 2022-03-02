@@ -30,9 +30,8 @@ router.get('/:id',(req, res, next) => {
         } else {
             res.json(data)
         }
-        
     })
-})
+});
 
 // created api to delete a programID
 router.delete('/:id', (req, res, next) => {
