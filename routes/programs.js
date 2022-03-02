@@ -71,5 +71,29 @@ router.put('/:id', (req, res, next) => {
     })
 })
 
+// endpoint to retrieve services by programID using aggregation
+router.get('/program-service/:programID', (req, res, next) => {
+    ProgramModel.aggregate([
+        // Cast req.param.programID to a Number type
+        // bc req.params.programID default datatype is String
+        { $match: {programID: Number(req.params.programID)} },
+        { $project: { _id: 0, programID: 1, programName: 1, projectDesc: 1} },
+        { $lookup: {
+            from: 'services',
+            localField: 'programID',
+            foreignField: 'programID',
+            as: 'Services under this program'
+        } }
+    ], (error, data) => {
+        if (error) {
+            return next(error)
+        }
+        else {
+            res.json(data)
+        }
+    })
+});
+
+
 
 module.exports = router
