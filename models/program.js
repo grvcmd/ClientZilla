@@ -10,7 +10,7 @@ const programSchema = new Schema({
     programName: String,
     programDesc: String,
     orgID: {
-        type: String,
+        type: Number,
         //required: true
     }
 
