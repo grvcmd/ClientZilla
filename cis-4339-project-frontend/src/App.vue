@@ -8,17 +8,46 @@ export default {
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
+  <div>
+    <!-- NAV BAR-->
+    <nav class="navbar navbar-expand navbar-light bg-light">
+      <div class="container">
+        <a class="navbar-brand float-left" href="">
+          <img 
+            alt="Vue logo"
+            src="./assets/logo.svg"
+            width="30"
+            height="30"
+            class="d-inline-block align-text-top"
+          />
+          ClientZilla
+        </a>
+        <ul class="nav navbar-nav mr-auto">
+          <li class="nav-item">
+            <router-link class="nav-link" to="">Home</router-link>
+          </li>
+          <li class="nav-item">
+            <router-link class="nav-link" to="">Sign Up</router-link>
+          </li>
+          <li class="nav-item">
+            <router-link class="nav-link" to="">TBA</router-link>
+          </li>
+          <li class="nav-item">
+            <router-link class="nav-link" to="">About</router-link>
+          </li>
+        </ul>
+      </div>
+    </nav>
 
-    <div class="wrapper">
+    <div class="container mt-5">
       <HelloWorld msg="You did it!"></HelloWorld>
     </div>
-  </header>
+  </div>
 </template>
 
 
 <style>
+/*
 @import './assets/base.css';
 
 #app {
@@ -79,4 +108,5 @@ a,
     margin: 0 2rem 0 0;
   }
 }
+*/
 </style>
