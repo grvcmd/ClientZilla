@@ -13,9 +13,10 @@ const router = createRouter({
             component: HomeView
         },
         {
-            path: '/create',
-            name: 'create',
-            component: () => import('../components/HelloWorld.vue')
+            // intake form view for new clients to fill
+            path: '/signup',
+            name: 'signup',
+            component: () => import('../components/SignUpView.vue')
 
         },
         {
