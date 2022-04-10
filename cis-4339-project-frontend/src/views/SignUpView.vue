@@ -2,8 +2,7 @@
     <div class="row justify-content-center">
         <div class="col-md-6">
             <h3 class="text-center">Sign Up</h3>
-            <!-- <form @submit.prevent="handleSubmitForm"> -->
-            <form>
+            <form @submit.prevent="handleSubmitForm">
                 <div class="form-group">
                     <label>First Name</label>
                     <input type="text" class="form-control" v-model="client.firstName" required>
@@ -13,12 +12,12 @@
                     <input type="text" class="form-control" v-model="client.lastName" required>
                 </div>
                 <div class="form-group">
-                    <label>Age</label>
-                    <input type="text" class="form-control" v-model="client.age" required>
+                    <label>Phone #</label>
+                    <input type="text" class="form-control" placeholder="XXX-XXX-XXXX" v-model="client.phoneNumber" required>
                 </div>
                 <div class="form-group">
-                    <label>Phone #</label>
-                    <input type="text" class="form-control" v-model="client.phoneNumber">
+                    <label>Age</label>
+                    <input type="text" class="form-control" v-model="client.age">
                 </div>
                 <div class="form-group">
                     <label>Gender</label>
@@ -33,33 +32,33 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label>Number of dependencies:</label>
-                    <input type="text" class="form-control" v-model="client.numOfDependants" required>
-                </div> 
+                    <label>Are you vaccinated?</label>
+                    <br>
+                    <div class="form-check form-check-inline">
+                        <input type="radio" value="true" id="yes" class="form-check-input" v-model="client.isVaccinated" required>
+                        <label class="form-check-label" for="yes">Yes</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input type="radio" value="false" id="no" class="form-check-input" v-model="client.isVaccinated" required>
+                        <label class="form-check-label" for="no">No</label>
+                    </div>
+                </div>
                 <div class="form-group">
                     <label>Are you a veteran</label>
                     <br>
                     <div class="form-check form-check-inline">
-                        <input type="radio" value="yes" id="yes" class="form-check-input" v-model="client.isVeteran" required>
+                        <input type="radio" value="true" id="yes" class="form-check-input" v-model="client.isVeteran" required>
                         <label class="form-check-label" for="yes">Yes</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input type="radio" value="no" id="no" class="form-check-input" v-model="client.isVeteran" required>
+                        <input type="radio" value="false" id="no" class="form-check-input" v-model="client.isVeteran" required>
                         <label class="form-check-label" for="no">No</label>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label>Are you vaccinated?</label>
-                    <br>
-                    <div class="form-check form-check-inline">
-                        <input type="radio" value="yes" id="yes" class="form-check-input" v-model="client.isVaccinated" required>
-                        <label class="form-check-label" for="yes">Yes</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input type="radio" value="no" id="no" class="form-check-input" v-model="client.isVaccinated" required>
-                        <label class="form-check-label" for="no">No</label>
-                    </div>
-                </div>
+                    <label>Number of dependencies:</label>
+                    <input type="text" class="form-control" v-model="client.numOfDependants" required>
+                </div> 
 
                 <button class="btn btn-danger mt-3">Create</button>
             </form>
@@ -84,6 +83,29 @@
                     isVeteran: '',  // boolean
                     numOfDependants: '',    // int
                 }
+            }
+        },
+        methods: {
+            handleSubmitForm() {
+                let apiURL = 'http://localhost:3000/intakeforms';
+
+                axios.post(apiURL, this.client).then(() => {
+                    //After submission, go back to the signup view
+                    this.$router.push('/')
+                    // Reset form fields
+                    this.client = {
+                        firstName: '',
+                        lastName: '',
+                        phoneNumber: '',
+                        age: '',
+                        gender: '',
+                        isVaccinated: '', 
+                        isVeteran: '',  
+                        numOfDependants: '',    
+                    }
+                }).catch(error => {
+                    console.log(error)
+                })
             }
         }
     }
