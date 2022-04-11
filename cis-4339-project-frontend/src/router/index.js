@@ -19,11 +19,12 @@ const router = createRouter({
             component: () => import('../views/SignUpView.vue')
 
         },
-        // {
-        //     path: '/view',
-        //     name: 'view',
-        //     component: () => import('../components/ListComponent.vue')
-        // },
+        {
+            //displays all organization
+            path: '/view',
+            name: 'view',
+            component: () => import('../views/OrganizationView.vue')
+        },
         // {
         //     path:'/edit/:id',
         //     name: 'edit',
