@@ -21,8 +21,8 @@ const router = createRouter({
         },
         {
             //displays all organization
-            path: '/view',
-            name: 'view',
+            path: '/view-orgs',
+            name: 'view-orgs',
             component: () => import('../views/OrganizationView.vue')
         },
         // {

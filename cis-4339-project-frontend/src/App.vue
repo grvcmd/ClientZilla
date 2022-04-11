@@ -22,7 +22,7 @@
             <router-link class="nav-link" to="/signup">Sign Up</router-link>
           </li>
           <li class="nav-item">
-            <router-link class="nav-link" to="/">TBA</router-link>
+            <router-link class="nav-link" to="/view-orgs">Organizations</router-link>
           </li>
           <li class="nav-item">
             <router-link class="nav-link" to="/">About</router-link>
