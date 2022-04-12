@@ -1,5 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const cors = require('cors');
 const app = express();
 require('dotenv').config();
 const axios = require('axios')
@@ -18,6 +19,7 @@ mongoose
         console.error("MongoDB connection error", err)
     });
 const port = process.env.PORT
+app.use(cors());
 
 // Routes for each model
 const serviceRouter = require('./routes/services')
