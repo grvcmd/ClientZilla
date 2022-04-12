@@ -13,7 +13,7 @@
                 </div>
                 <div class="form-group">
                     <label>Phone #</label>
-                    <input type="text" class="form-control" placeholder="XXX-XXX-XXXX" v-model="client.phoneNumber" required>
+                    <input type="text" class="form-control" placeholder="XXXXXXXXXX" v-model="client.phoneNumber" required>
                 </div>
                 <div class="form-group">
                     <label>Age</label>
@@ -60,7 +60,7 @@
                     <input type="text" class="form-control" v-model="client.numOfDependants" required>
                 </div> 
 
-                <button class="btn btn-danger mt-3">Create</button>
+                <button type="submit" class="btn btn-danger mt-3">Create</button>
             </form>
         </div>
     </div>
@@ -74,11 +74,11 @@
         data() {
             return {
                 client: {
-                    firstName: '',
-                    lastName: '',
-                    phoneNumber: '',
-                    age: '',
-                    gender: '',
+                    firstName: '',  // string
+                    lastName: '',   // string
+                    phoneNumber: '',    // string
+                    age: '',    // number
+                    gender: '', // string
                     isVaccinated: '', // boolean
                     isVeteran: '',  // boolean
                     numOfDependants: '',    // int
@@ -87,11 +87,19 @@
         },
         methods: {
             handleSubmitForm() {
-                let apiURL = 'http://localhost:3000/intakeforms';
+                console.log("form submitted")
+
+                let apiURL = 'http://localhost:3001/intakeforms';
+                // convert fields from string to correct datatypes
+                parseInt(this.client.age)
+                parseInt(this.client.numOfDependants)
 
                 axios.post(apiURL, this.client).then(() => {
                     //After submission, go back to the signup view
                     this.$router.push('/')
+
+                    console.log("form send to db")
+
                     // Reset form fields
                     this.client = {
                         firstName: '',
