@@ -31,11 +31,11 @@ const router = createRouter({
             name: 'org-programs',
             component: () => import('../views/OrgProgramsView.vue')
         },
-        // {
-        //     path: '/about',
-        //     name: 'about',
-        //     component: () => import('../views/AboutView.vue')
-        // }
+        {
+            path: '/program-services/:id',
+            name: 'program-services',
+            component: () => import('../views/ProgramServicesView.vue')
+        }
     ]
 })
 

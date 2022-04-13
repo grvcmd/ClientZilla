@@ -14,6 +14,9 @@
           <td>{{ program.programID }}</td>
           <td>{{ program.programName }}</td>
           <td>{{ program.programDesc }}</td>
+          <td>
+            <router-link :to="{name: 'program-services', params: { id: program.programID }}" class="btn btn-success ">View Services</router-link>
+          </td>
         </tr>
       </tbody>
     </table>
