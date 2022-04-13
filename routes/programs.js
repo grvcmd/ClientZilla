@@ -59,6 +59,18 @@ router.post('/', (req, res, next) => {
     })
 })
 
+// SIMPLE endpoint to GET all programs by Org ID
+router.get('/get-org-programs/:id', (req, res, next) => {
+    ProgramModel.find({ orgID: req.params.id }, (error, data) => {
+        if (error) {
+          return next(error)
+        } else {
+          console.log(data)
+          res.json(data);
+        }
+    });
+});
+
 // api for updating (editing) a program
 router.put('/:id', (req, res, next) => {
     ProgramModel.findOneAndUpdate({ programID: req.params.id }, {$set: req.body}, (error, data) => {
