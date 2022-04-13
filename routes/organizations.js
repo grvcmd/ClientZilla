@@ -74,7 +74,7 @@ router.put('/:orgID', (req, res, next) => {
     })
 });
 
-// Endpoint to GET all programs that an organization has
+// AGGREGATION endpoint to GET all programs that an organization has
 router.get('/organization-program/:orgID', (req, res, next) => {
     OrgModel.aggregate([
         // Cast req.param.orgID to a Number type
