@@ -5,19 +5,33 @@
         <tr>
           <th>Service ID</th>
           <th>Service Name</th>
-          <th>Service Desc</th>
         </tr>
       </thead>
       <tbody>
-       <!-- <tr v-for="program in Programs" :key="program._id">
-          <td>{{ program.programID }}</td>
-          <td>{{ program.programName }}</td>
-          <td>{{ program.programDesc }}</td>
-          <td>
-            <router-link :to="{name: 'program-services', params: { id: program.programID }}" class="btn btn-success ">View Services</router-link>
-          </td>
-        </tr> -->
+       <tr v-for="service in Services" :key="service._id">
+          <td>{{ service.serviceID }}</td>
+          <td>{{ service.serviceName }}</td>
+        </tr>
       </tbody>
     </table>
   </div>
 </template>
+
+<script>
+  import axios from 'axios';
+  export default {
+      data() {
+          return {
+              Services: []
+          }
+      },
+      created() {
+        let apiURL = `http://localhost:3001/services/get-services-program/${this.$route.params.id}`
+        axios.get(apiURL).then(res => {
+            this.Services = res.data;
+        }).catch(error => {
+            console.log(error)
+        }); 
+      }
+  }
+</script>
