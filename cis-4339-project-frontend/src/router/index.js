@@ -20,6 +20,12 @@ const router = createRouter({
 
         },
         {
+            // new organization registration view
+            path: '/orgsignup',
+            name: 'orgsignup',
+            component: () => import('../views/OrgSignUpView.vue')
+        },
+        {
             //displays all organization
             path: '/view-orgs',
             name: 'view-orgs',
