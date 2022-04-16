@@ -5,12 +5,14 @@
         <tr>
           <th>Service ID</th>
           <th>Service Name</th>
+          <th># Of Applicants</th>
         </tr>
       </thead>
       <tbody>
        <tr v-for="service in Services" :key="service._id">
           <td>{{ service.serviceID }}</td>
           <td>{{ service.serviceName }}</td>
+          <td>{{ service.numOfApplications }}</td>
         </tr>
       </tbody>
     </table>
