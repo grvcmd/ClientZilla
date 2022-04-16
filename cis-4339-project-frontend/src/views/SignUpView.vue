@@ -60,6 +60,14 @@
                     <input type="text" class="form-control" v-model="client.numOfDependants" required>
                 </div> 
 
+                <!-- If there are anything in the error list - display those errors. -->
+                <p v-if="errors.length">
+                    <br>
+                    <b>Please correct the following error(s):</b>
+                    <ul>
+                        <li v-for="error in errors" :key="error">{{ error }} </li>
+                    </ul>
+                </p>
                 <button type="submit" class="btn btn-danger mt-3">Create</button>
             </form>
         </div>
@@ -73,6 +81,7 @@
     export default {
         data() {
             return {
+                errors: [],
                 client: {
                     firstName: '',  // string
                     lastName: '',   // string
@@ -87,33 +96,48 @@
         },
         methods: {
             handleSubmitForm() {
-                console.log("form submitted")
+                this.errors = [];
 
-                let apiURL = 'http://localhost:3001/intakeforms';
-                // convert fields from string to correct datatypes
-                parseInt(this.client.age)
-                parseInt(this.client.numOfDependants)
+                // Validate entered phone # is 10 digits long
+                if (this.client.phoneNumber.length < 10){
+                    this.errors.push("Phone number must be 10 digits long");
+                };
+                // Validate that age is > 18
+                if (parseInt(this.client.age) < 18) {
+                    this.errors.push("You must be older than 18 to sign up as a client.")
+                }
 
-                axios.post(apiURL, this.client).then(() => {
-                    //After submission, go back to the signup view
-                    this.$router.push('/')
+                // if there are no errors, submit the form
+                if (this.errors.length === 0) {
 
-                    console.log("form send to db")
+                    console.log("form submitted")
 
-                    // Reset form fields
-                    this.client = {
-                        firstName: '',
-                        lastName: '',
-                        phoneNumber: '',
-                        age: '',
-                        gender: '',
-                        isVaccinated: '', 
-                        isVeteran: '',  
-                        numOfDependants: '',    
-                    }
-                }).catch(error => {
-                    console.log(error)
-                })
+                    let apiURL = 'http://localhost:3001/intakeforms';
+                    // convert fields from string to correct datatypes
+                    parseInt(this.client.age)
+                    parseInt(this.client.numOfDependants)
+
+                    axios.post(apiURL, this.client).then(() => {
+                        //After submission, go back to the signup view
+                        this.$router.push('/')
+
+                        console.log("form send to db")
+
+                        // Reset form fields
+                        this.client = {
+                            firstName: '',
+                            lastName: '',
+                            phoneNumber: '',
+                            age: '',
+                            gender: '',
+                            isVaccinated: '', 
+                            isVeteran: '',  
+                            numOfDependants: '',    
+                        }
+                    }).catch(error => {
+                        console.log(error)
+                    });
+                }
             }
         }
     }
