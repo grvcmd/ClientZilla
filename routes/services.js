@@ -33,6 +33,19 @@ router.get ('/:id', (req, res, next) => {
         }
     })
 })
+
+// SIMPLE endpoint to GET all services by programID
+router.get('/get-services-program/:id', (req, res, next) => {
+    ServiceModel.find({ programID: req.params.id }, (error, data) => {
+        if (error) {
+          return next(error)
+        } else {
+          console.log(data)
+          res.json(data);
+        }
+    });
+});
+
 // endpoint for deleting a service by serviceID
 router.delete('/:id', (req, res, next) => {
     ServiceModel.findOneAndRemove ({ serviceID: req.params.id}, (error,data) => {

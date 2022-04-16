@@ -80,7 +80,7 @@ app.get('/clients/:first_name/:last_name/:phone_number', async(req, res) => {
 
 // Server will start listening and log a message if OK
 app.listen(port, () => {
-  console.log("Server started listening on port.");
+  console.log("Server started listening on port " + port + ".");
 });
 
 

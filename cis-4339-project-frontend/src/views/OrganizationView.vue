@@ -4,9 +4,10 @@
     <table class="table table-striped">
       <thead class="table-dark">
         <tr>
-          <th>Organization ID</th>
-          <th>Organization Name</th>
-          <th>Organization Desc</th>
+          <th>Org ID</th>
+          <th>Org Name</th>
+          <th>Org Desc</th>
+          <th>Actions</th>
         </tr>
       </thead>
       <tbody>
@@ -14,10 +15,10 @@
           <td>{{ organization.orgID }}</td>
           <td>{{ organization.orgName }}</td>
           <td>{{ organization.orgDesc }}</td>
-            <!-- <td>
-            <router-link :to="{name: 'edit', params: { id: student._id }}" class="btn btn-success ">Edit</router-link>
-            <button @click.prevent="deleteStudent(student._id)" class="btn btn-danger mx-2">Delete</button>
-          </td> -->
+          <td>
+            <router-link :to="{name: 'org-programs', params: { id: organization.orgID }}" class="btn btn-success ">View Programs</router-link>
+            <!-- <button @click.prevent="deleteStudent(student._id)" class="btn btn-danger mx-2">Delete</button> -->
+          </td>
         </tr>
       </tbody>
     </table>

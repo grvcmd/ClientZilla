@@ -25,16 +25,17 @@ const router = createRouter({
             name: 'view-orgs',
             component: () => import('../views/OrganizationView.vue')
         },
-        // {
-        //     path:'/edit/:id',
-        //     name: 'edit',
-        //     component: () => import('../components/EditComponent.vue')
-        // },
-        // {
-        //     path: '/about',
-        //     name: 'about',
-        //     component: () => import('../views/AboutView.vue')
-        // }
+        {
+            //display the orgs programs
+            path:'/org-programs/:id',
+            name: 'org-programs',
+            component: () => import('../views/OrgProgramsView.vue')
+        },
+        {
+            path: '/program-services/:id',
+            name: 'program-services',
+            component: () => import('../views/ProgramServicesView.vue')
+        }
     ]
 })
 
