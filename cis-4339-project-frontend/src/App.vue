@@ -18,9 +18,35 @@
           <li class="nav-item">
             <router-link class="nav-link" to="/">Home</router-link>
           </li>
-          <li class="nav-item">
+          <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="navbarDropdownMenuLink"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Registration
+              </a>
+              <ul
+                class="dropdown-menu"
+                aria-labelledby="navbarDropdownMenuLink"
+              >
+                <li class="nav-item">
+                  <router-link class="nav-link" to="/signup">Client Registration</router-link>
+                </li>
+                <li class="nav-item">
+                  <router-link class="nav-link" to="/orgsignup"
+                    >Register Organization</router-link
+                  >
+                </li>
+              </ul>
+            </li>
+
+          <!-- <li class="nav-item">
             <router-link class="nav-link" to="/signup">Sign Up</router-link>
-          </li>
+          </li> -->
           <li class="nav-item">
             <router-link class="nav-link" to="/view-orgs">Organizations</router-link>
           </li>
