@@ -32,6 +32,12 @@ const router = createRouter({
             component: () => import('../views/OrganizationView.vue')
         },
         {
+            // Edit existing org
+            path: '/edit-org',
+            name: 'edit-org',
+            component: () => import('../components/EditOrgComponent.vue')
+        },
+        {
             //display the orgs programs
             path:'/org-programs/:id',
             name: 'org-programs',
