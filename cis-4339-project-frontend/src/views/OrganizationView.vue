@@ -17,7 +17,8 @@
           <td>{{ organization.orgDesc }}</td>
           <td>
             <router-link :to="{name: 'org-programs', params: { id: organization.orgID }}" class="btn btn-success ">View Programs</router-link>
-            <!-- <button @click.prevent="deleteStudent(student._id)" class="btn btn-danger mx-2">Delete</button> -->
+            <router-link :to="{name: 'edit-org', params: { id: organization.orgID }}" class="btn btn-success ">Edit</router-link>
+            <button @click.prevent="deleteOrganization(organization.orgID)" class="btn btn-danger mx-2">Delete</button>
           </td>
         </tr>
       </tbody>
@@ -41,9 +42,23 @@ export default {
             this.Organizations = res.data;
         }).catch(error =>{
             console.log(error)
-        });    
-        
+        });     
+    },
+    methods: {
+        deleteOrganization(id){
+            let apiURL = `http://localhost:3001/organizations/${id}`;
+            let indexOfArrayItem = this.Organizations.findIndex(i => i.orgID === id);
+
+            if (window.confirm("Do you really want to delete?")) {
+              //call to backend
+                axios.delete(apiURL).then(() => {
+                  //remove one element from Students array object to update data
+                    this.Organizations.splice(indexOfArrayItem, 1);
+                }).catch(error => {
+                    console.log(error)
+                });
+            }
+        }
     }
-    
 }
 </script>

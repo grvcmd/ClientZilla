@@ -9,7 +9,8 @@
                 </div>
                 <div class="form-group">
                     <label>Organization Description</label>
-                    <input type="text" class="form-control" v-model="organization.orgDesc" required>
+                    <!-- <input type="text" class="form-control" v-model="organization.orgDesc" required> -->
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" v-model="organization.orgDesc" required></textarea>
                 </div>
                 <div class="form-group">
                     <label>Choose an ID number for your Organization</label>
@@ -69,7 +70,7 @@
 
                     axios.post(apiURL, this.organization).then(() => {
                         //After submission, go back to the orgsignup view
-                        this.$router.push('/orgsignup')
+                        this.$router.push('/view-orgs')
 
                         console.log("form send to db")
 
