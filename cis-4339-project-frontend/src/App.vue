@@ -51,6 +51,9 @@
             <router-link class="nav-link" to="/view-orgs">Organizations</router-link>
           </li>
           <li class="nav-item">
+            <router-link class="nav-link" to="/view-clients">Clients</router-link>
+          </li>
+          <li class="nav-item">
             <router-link class="nav-link" to="/">Summary</router-link>
           </li>
         </ul>

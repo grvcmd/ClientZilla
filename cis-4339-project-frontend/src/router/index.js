@@ -47,6 +47,13 @@ const router = createRouter({
             path: '/program-services/:id',
             name: 'program-services',
             component: () => import('../views/ProgramServicesView.vue')
+        },
+
+        {
+            //created view to display clients
+            path: '/view-clients',
+            name: 'view-clients',
+            component: () => import('../views/ClientView.vue')
         }
     ]
 })
