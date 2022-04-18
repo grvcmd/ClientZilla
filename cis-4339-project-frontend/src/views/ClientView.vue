@@ -17,6 +17,7 @@
           <th>Client ID</th>
           <!-- <th>Created At</th> -->
           <!-- <th>Updated At</th> -->
+          <th>Actions</th>
         </tr>
       </thead>
       <tbody>
@@ -35,9 +36,11 @@
           <td>{{ intakeForm.clientID}}</td>
           <!-- <td>{{ intakeForm.createdAt}}</td>
           <td>{{ intakeForm.updatedAt}}</td> -->
-          <!-- <td>
-            <router-link :to="{name: 'program-services', params: { id: program.programID }}" class="btn btn-success ">View Services</router-link>
-          </td> -->
+          <td>
+            <router-link :to="{name: 'edit-client', params: { id: intakeForm.clientID }}" class="btn btn-success ">Edit</router-link>
+            <button @click.prevent="deleteClient(intakeForm.clientID)" class="btn btn-danger mx-2">Delete</button>
+          </td>
+          
         </tr>
       </tbody>
     </table>
@@ -46,14 +49,14 @@
 
 // importing axios to call our backend api "intakeforms"
 <script>
-    import axios from "axios";
-export default {
+  import axios from "axios";
+  export default {
     data(){
         return{
             intakeForms:[]
         }
     },
-    // calling our backend to display to frontend
+      // calling our backend to display to frontend
     created(){
         let apiURL = 'http://localhost:3001/intakeforms';
         axios.get(apiURL).then(res =>{
@@ -61,8 +64,24 @@ export default {
         }).catch(error =>{
             console.log(error)
         });
+    },
+    methods: {
+      deleteClient(id){
+          let apiURL = `http://localhost:3001/intakeforms/${id}`;
+          let indexOfArrayItem = this.intakeForms.findIndex(i => i.clientID === id);
+
+          if (window.confirm("Do you really want to delete?")) {
+            //call to backend
+              axios.delete(apiURL).then((res) => {
+                    console.log(res)
+                    this.$router.push('/view-clients')
+                }).catch(error => {
+                    console.log(error)
+                });
+          }
+      }
     }
-}
+  }
 </script>
 
 
