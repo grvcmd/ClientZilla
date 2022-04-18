@@ -1,7 +1,7 @@
 <template>
     <div class="row justify-content-center">
         <div class="col-md-6">
-            <h3 class="text-center">Client Registration</h3>
+            <h3 class="text-center">Update Client</h3>
             <form @submit.prevent="handleUpdateForm">
                 <div class="form-group">
                     <label>Organizations you have worked with</label>
