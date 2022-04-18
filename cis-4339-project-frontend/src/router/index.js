@@ -1,6 +1,7 @@
 //importing router
 import { createRouter, createWebHistory} from 'vue-router'
 import HomeView from '../views/HomeView.vue'
+import ChartView from '../views/ChartView.vue'
 
 //below we're creating the routes
 //importing components & views from their local loaction 
@@ -60,6 +61,12 @@ const router = createRouter({
             path: '/edit-client',
             name: 'edit-client',
             component: () => import('../components/EditClientComponent.vue')
+        },
+        {
+            // Chart view to see how many applicants each service has
+            path: '/chart',
+            name: 'chart',
+            component: ChartView
         },
     ]
 })
