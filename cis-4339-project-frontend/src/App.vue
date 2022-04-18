@@ -54,7 +54,7 @@
             <router-link class="nav-link" to="/view-clients">Clients</router-link>
           </li>
           <li class="nav-item">
-            <router-link class="nav-link" to="/">Summary</router-link>
+            <router-link class="nav-link" to="/chart">Chart</router-link>
           </li>
         </ul>
       </div>
