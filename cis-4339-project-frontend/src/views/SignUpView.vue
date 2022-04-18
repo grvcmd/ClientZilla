@@ -4,6 +4,10 @@
             <h3 class="text-center">Client Registration</h3>
             <form @submit.prevent="handleSubmitForm">
                 <div class="form-group">
+                    <label>Organizations you have worked with</label>
+                    <input type="text" class="form-control" placeholder="Org 1, Org 2, Org 3" v-model="client.orgsWorkedWith">
+                </div>
+                <div class="form-group">
                     <label>First Name</label>
                     <input type="text" class="form-control" v-model="client.firstName" required>
                 </div>
@@ -56,7 +60,7 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label>Number of dependencies:</label>
+                    <label>Number of dependants:</label>
                     <input type="text" class="form-control" v-model="client.numOfDependants" required>
                 </div> 
 
@@ -83,6 +87,7 @@
             return {
                 errors: [],
                 client: {
+                    orgsWorkedWith: [], //array
                     firstName: '',  // string
                     lastName: '',   // string
                     phoneNumber: '',    // string
