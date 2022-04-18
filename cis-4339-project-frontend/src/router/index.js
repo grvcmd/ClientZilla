@@ -59,7 +59,7 @@ const router = createRouter({
             // View to edit clients
             path: '/edit-client',
             name: 'edit-client',
-            // component: () =>
+            component: () => import('../components/EditClientComponent.vue')
         },
     ]
 })
