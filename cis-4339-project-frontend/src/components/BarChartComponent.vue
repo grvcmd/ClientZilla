@@ -24,7 +24,7 @@
                     datasets: [
                         {
                             label: "Applicants",
-                            backgroundColor: "rgba(144,238,144 , 0.9 )",
+                            backgroundColor: "rgba(21, 151, 240, 0.8 )",
                             data: this.chartData
                         }
                     ]
