@@ -124,7 +124,7 @@
 
                     axios.post(apiURL, this.client).then(() => {
                         //After submission, go back to the signup view
-                        this.$router.push('/')
+                        this.$router.push('/view-clients')
 
                         console.log("form send to db")
 
