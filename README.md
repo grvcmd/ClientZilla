@@ -8,7 +8,8 @@ Gervin Ken Valverde, Esteban Camarillo, Larissa Gonzalez
 ## Getting Started
 1. Download [Node.js](https://nodejs.org/en/download/) 
 2. We will use Node Package Manager [npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) to install our dependencies.
-    - Run
+    - Run the command below in the project-cis_4339_project_15 folder AND in the cis-4339-project-frontend folder.
+    - You will run the command TWICE.
     ```
     npm install
     ```
