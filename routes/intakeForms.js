@@ -41,7 +41,7 @@ router.get('/:clientID', (req, res, next) => {
 // ** It can't work with clientID bc the UUID property changes it every request
 // So the ObjectId is being used temporarily
 router.delete('/:id', (req, res, next) => {
-    IntakeFormModel.findOneAndRemove({ ObjectId: req.params.id }, (error, data) => {
+    IntakeFormModel.findOneAndRemove({ clientID: req.params.id }, (error, data) => {
         if (error) {
             return next(error)
         } else {
