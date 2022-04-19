@@ -13,11 +13,16 @@ Gervin Ken Valverde, Esteban Camarillo, Larissa Gonzalez
     ```
     npm install
     ```
-3. Start the server
+3. Start the backend server. Run this command in the project-cis_4339_project_15 folder
     ```python
     npm run devstart
     ```
-4. Download [Postman](https://www.postman.com/)
+4. Start the frontend server. Run this command in the cis-4339-project-frontend folder
+    - If successful, follow the link given in the the command line to open the application
+    ```python
+    npm run dev
+    ```
+5. Download [Postman](https://www.postman.com/)
 
 ## Our Models
 To get  a high level view on our collections and documents, the following are the current models that we have. Each of these models have routes that mainly have to do with **GET, POST, PUT & DELETE requests**.
