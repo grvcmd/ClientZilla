@@ -7,35 +7,18 @@
           <th>Orgs Worked With</th>
           <th>First Name</th>
           <th>Last Name</th>
-          <!-- <th>Phone Number</th> -->
-          <!-- <th>Age</th> -->
-          <!-- <th>Gender</th> -->
-          <!-- <th>SSN</th> -->
-          <!-- <th>Vaccinated</th> -->
-          <!-- <th>Veteran</th> -->
-          <!-- <th>Number of Dependants</th> -->
+          <th>Phone Number</th>
           <th>Client ID</th>
-          <!-- <th>Created At</th> -->
-          <!-- <th>Updated At</th> -->
           <th>Actions</th>
         </tr>
       </thead>
       <tbody>
        <tr v-for="intakeForm in intakeForms" :key="intakeForm._id">
           <td>{{intakeForm.orgsWorkedWith.join(', ')}}</td>
-          <!-- <td>{{ intakeForm.orgsWorkedWith}}</td> -->
           <td>{{ intakeForm.firstName}}</td>
           <td>{{ intakeForm.lastName}}</td>
-          <!-- <td>{{ intakeForm.phoneNumber}}</td>
-          <td>{{ intakeForm.age}}</td>
-          <td>{{ intakeForm.gender}}</td>
-          <td>{{ intakeForm.ssn}}</td>
-          <td>{{ intakeForm.isVaccinated}}</td>
-          <td>{{ intakeForm.isVeteran}}</td>
-          <td>{{ intakeForm.numOfDependants}}</td> -->
+          <td>{{ intakeForm.phoneNumber}}</td>
           <td>{{ intakeForm.clientID}}</td>
-          <!-- <td>{{ intakeForm.createdAt}}</td>
-          <td>{{ intakeForm.updatedAt}}</td> -->
           <td>
             <router-link :to="{name: 'edit-client', params: { id: intakeForm.clientID }}" class="btn btn-success ">Edit</router-link>
             <button @click.prevent="deleteClient(intakeForm.clientID)" class="btn btn-danger mx-2">Delete</button>
@@ -74,7 +57,7 @@
             //call to backend
               axios.delete(apiURL).then((res) => {
                     console.log(res)
-                    this.$router.push('/view-clients')
+                    this.intakeForms.splice(indexOfArrayItem, 1);
                 }).catch(error => {
                     console.log(error)
                 });
