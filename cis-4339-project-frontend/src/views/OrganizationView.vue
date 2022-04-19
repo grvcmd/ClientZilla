@@ -16,9 +16,9 @@
           <td>{{ organization.orgName }}</td>
           <td>{{ organization.orgDesc }}</td>
           <td>
-            <router-link :to="{name: 'org-programs', params: { id: organization.orgID }}" class="btn btn-success ">View Programs</router-link>
-            <router-link :to="{name: 'edit-org', params: { id: organization.orgID }}" class="btn btn-success ">Edit</router-link>
-            <button @click.prevent="deleteOrganization(organization.orgID)" class="btn btn-danger mx-2">Delete</button>
+            <router-link :to="{name: 'org-programs', params: { id: organization.orgID }}" class="btn btn-info mx-1">Programs</router-link>
+            <router-link :to="{name: 'edit-org', params: { id: organization.orgID }}" class="btn btn-success">Edit</router-link>
+            <button @click.prevent="deleteOrganization(organization.orgID)" class="btn btn-danger mx-1">Delete</button>
           </td>
         </tr>
       </tbody>
