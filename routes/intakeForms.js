@@ -66,8 +66,9 @@ router.post('/', (req, res, next) => {
 // endpoint for updating an intakeform
 // ** It can't work with clientID bc the UUID property changes it every request
 // So the ObjectId is being used temporarily
-router.put('/:id', (req, res, next) => {
-    IntakeFormModel.findOneAndUpdate({ ObjectId: req.params.id }, {$set: req.body}, (error, data) => {
+router.put('/:clientID', (req, res, next) => {
+    console.log(`Updating intake form with clientID of ${req.params.clientID}`)
+    IntakeFormModel.findOneAndUpdate({ clientID: req.params.clientID }, {$set: req.body}, (error, data) => {
         if (error) {
             return next(error)
         } else {

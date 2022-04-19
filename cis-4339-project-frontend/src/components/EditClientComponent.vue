@@ -72,7 +72,7 @@
                         <li v-for="error in errors" :key="error">{{ error }} </li>
                     </ul>
                 </p>
-                <button type="submit" class="btn btn-danger mt-3">Create</button>
+                <button type="submit" class="btn btn-danger mt-3">Update</button>
             </form>
         </div>
     </div>
