@@ -7,7 +7,7 @@
         <a class="navbar-brand float-left" href="/">
           <img 
             alt="Vue logo"
-            src="./assets/logo.svg"
+            src="./assets/zilla-logo.svg"
             width="30"
             height="30"
             class="d-inline-block align-text-top"
