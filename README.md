@@ -7,7 +7,8 @@ Gervin Ken Valverde, Esteban Camarillo, Larissa Gonzalez
 
 ## Getting Started
 1. Download [Node.js](https://nodejs.org/en/download/) 
-2. We will use Node Package Manager [npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) to install our dependencies
+2. We will use Node Package Manager [npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) to install our dependencies.
+    - Run
     ```
     npm install
     ```
